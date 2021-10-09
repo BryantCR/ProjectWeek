@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+    font-family: 'Titillium Web', sans-serif;
+}
+/*=============================================================================== NAVBAR ============================================*/
+.nav_background{
+    background-color: #011640;
+    height: 40%;
+	padding: 20px 40px;
+}
+
+.nav_tittle{
+    color: #F2F2F2;
+}
+/*=============================================================================== MAIN ============================================*/
+
+main{
+	background-color: w;
+	padding: 5%;
+	height: auto;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+
+.container_form_image{
+    background-color: #00020D;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	height: 100%;
+	width: 40%;
+	border-radius: 10px;
+}
+
+.container_login_image{
+display: flex;
+flex: 1;
+}
+
+.login_image{
+	height: 40%;
+	width: 25%;
+	/* height: 400px;
+	width: 250px; */
+	display: flex;
+}
+.container_form{
+	display: flex;
+	flex: 1;
+}
+
+.form_login{
+	border: 3px solid orange;
+}
+
+.container_inputs{
+	
+}
+

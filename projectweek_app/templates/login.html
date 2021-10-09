@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <link rel="stylesheet" href="./../static/css/login.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <header>
+            <nav class="nav_background">
+                <h2 class="nav_tittle">
+                    "Hola"
+                </h2>
+            </nav>
+        </header>
+        <main>
+            <div class="container_form_image">
+                <div class="container_login_image">
+                    <img class="login_image" src="./../static/images/austin-poon-JO_S6ewBqAk-unsplash (1).jpg" alt="Laptop picture “DIGITAL MINIMALISM.”">
+                </div>
+                <div class="container_form">
+                    <form class="form_login" action="">
+                        <div class="container_inputs">
+                            <div class="">
+                                <h2>
+                                    Sign in
+                                </h2>
+                            </div>
+                            <div>
+                                {{session['ErrorMessage']}}
+                            </div>
+                            <div class="">
+                                <label class="" for="email">
+                                    Email Address: 
+                                </label>
+                                <input class="" type="email" id="email" name="email"/>
+                            </div>
+                            <div class="">
+                                <label class="" for="users_password">
+                                    Password: 
+                                </label>
+                                <input class="" type="password" name="users_password" id="users_password" />
+                            </div>
+                            <div class="">
+                                <input class="" type="submit" value="Log in" name="buttonSubmitForm" id="buttonSubmitForm">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer class="nav_background">
+            <p>Author: Bryan Cascante Vargas<br>
+            <a href="bryancvargas20@gmail.com">bryancvargas20@gmail.com</a></p>
+        </footer>
+    </body>
+</html>
