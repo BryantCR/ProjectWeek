@@ -12,7 +12,7 @@
     font-family: 'Titillium Web', sans-serif;
 }
 /*=============================================================================== NAVBAR ============================================*/
-.nav_background{
+/* .nav_background{
     background-color: #011640;
     height: 40%;
 	padding: 20px 40px;
@@ -20,10 +20,10 @@
 
 .nav_tittle{
     color: #F2F2F2;
-}
+} */
 /*=============================================================================== MAIN ============================================*/
 
-main{
+/* main{
 	background-color: w;
 	padding: 5%;
 	height: auto;
@@ -54,8 +54,6 @@ flex: 1;
 .login_image{
 	height: 40%;
 	width: 25%;
-	/* height: 400px;
-	width: 250px; */
 	display: flex;
 }
 .container_form{
@@ -69,5 +67,11 @@ flex: 1;
 
 .container_inputs{
 	
+} */
+
+.user_icon{
+	height: 15px;
+	width: 5px;
 }
+
 
