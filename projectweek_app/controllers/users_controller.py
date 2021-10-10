@@ -38,7 +38,7 @@ def loadToDBUserInfo():
     print("FROM FORM 1 REGISTER: ", data )
     print("END OF REGISTER PART", data)
     if User.validate_registration(data):
-        User.register_login(data)
+        User.user_Registration(data)
     else:
         print("invalid values")
     return redirect('/login')

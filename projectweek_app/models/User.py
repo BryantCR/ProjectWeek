@@ -19,7 +19,7 @@ class User:
     ################################################## INSERT USER DB ###################################
 
     @classmethod
-    def register_login(cls, data):
+    def user_Registration(cls, data):
         query = "INSERT INTO users (first_name, last_name, email, users_password, created_at, updated_at) VALUES ( %(first_name)s , %(last_name)s , %(email)s, %(encryptedpassword)s, SYSDATE(), SYSDATE());"
         data2 = {
             "first_name" : data[0],
@@ -120,7 +120,9 @@ class User:
         if data[3] != data[5]:
             flash("Passwords must match, try again")
             isValid = False
-            
+        if len(data[0]) == 0 or len(data[1]) == 0 or len(data[2]) == 0 or len(data[3]) == 0 or len(data[4]) == 0:
+            flash("There is an empty data space try to fill it")
+            isValid = False
         return isValid
 
 #####################################################################################################################################
