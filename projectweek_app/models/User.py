@@ -29,7 +29,7 @@ class User:
             "encryptedpassword" : data[4],
             "confirm_users_password" : data[5]
         }
-        result = connectToMySQL('python_exam').query_db( query, data2 )
+        result = connectToMySQL('project_app').query_db( query, data2 )
         print("RESULT LOGIN", result)
         return result
     
@@ -42,7 +42,7 @@ class User:
             "email" : data[0],
             "users_password" : data[1],
         }
-        result = connectToMySQL('python_exam').query_db( query, data2 )
+        result = connectToMySQL('project_app').query_db( query, data2 )
         return result
 
     ################################################## GET ONE USER ###################################
@@ -50,7 +50,7 @@ class User:
     @classmethod
     def get_userBy_id( cls, data ):
         query = "SELECT * FROM users WHERE users_id = %(users_id)s;"
-        results = connectToMySQL('python_exam').query_db( query, data )
+        results = connectToMySQL('project_app').query_db( query, data )
         return results
 
     ################################################## GET ALL USERS ###################################
@@ -58,7 +58,7 @@ class User:
     @classmethod 
     def get_all_users( cls, data ):
         query = "SELECT * FROM users WHERE users_id != %(users_id)s ORDER BY first_name;"
-        results = connectToMySQL('python_exam').query_db(query,data)
+        results = connectToMySQL('project_app').query_db(query,data)
         print("RESULT GET ALL USERS MODEL", results)
         users = []
         for n in results:
@@ -73,7 +73,7 @@ class User:
         data = {
             "username" : username
         }
-        result = connectToMySQL( "python_exam" ).query_db( query, data )
+        result = connectToMySQL( "project_app" ).query_db( query, data )
         return result
 
 ###################################################################### STATIC METHODS
@@ -101,7 +101,7 @@ class User:
             "encryptedpassword" : data[4],
             "confirm_users_password" : data[5]
         }
-        results = connectToMySQL('python_exam').query_db( query, data2 )
+        results = connectToMySQL('project_app').query_db( query, data2 )
         if len(results)>=1:
             flash("Email already registered")
             isValid = False

@@ -15,6 +15,32 @@ def redirectFirstPage():
 def displayLoginform():
     return render_template( "login.html")
 
+@app.route('/login/home', methods = ['POST'])
+def displayLoginform():
+    email = request.form['email']
+    users_password = request.form['users_password']
+    data = (email, users_password)
+
+    result  = User.user_login(data)
+    print("RESULT LOGIN: ", result)
+    if len( result ) > 0:
+        encryptedPassword = result[0]['users_password']
+        print("Encripted Password: ", encryptedPassword)
+        if bcrypt.check_password_hash( encryptedPassword, users_password ):
+            session.clear()
+            users_id = result[0]['users_id']
+            session['users_id'] = users_id
+            return redirect ('/home')
+        else:
+            messageWrongPass = "Wrong credentials provided."
+            session['ErrorMessage'] = messageWrongPass
+    else:
+        messageWrongPass = "There is no user with this information"
+        session['ErrorMessage'] = messageWrongPass
+    return redirect('/login')
+
+    ##################################### DASHBOARD ##################################
+
 @app.route('/home')
 def displayDashboard():
     pass
@@ -35,12 +61,14 @@ def loadToDBUserInfo():
     confirm_users_password = request.form['confirm_users_password']
 
     data = (first_name,last_name,email,users_password,encryptedpassword,confirm_users_password)
+
     print("FROM FORM 1 REGISTER: ", data )
     print("END OF REGISTER PART", data)
     if User.validate_registration(data):
         User.user_Registration(data)
     else:
         print("invalid values")
+        return redirect('/register')
     return redirect('/login')
 
 
