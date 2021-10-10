@@ -1,6 +1,6 @@
 from flask import render_template, request, session, redirect
-from python_exam_app import app
-from python_exam_app.models.User import User
+from projectweek_app import app
+from projectweek_app.models.User import User
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt(app)
