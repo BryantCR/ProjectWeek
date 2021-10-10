@@ -18,16 +18,12 @@
         </header>
         <main class="p-5 bg-dark">
             <div class="d-flex flex-row bd-highlight justify-content-center align-items-center rounded shadow p-3 mb-5 bg-body rounded" class="container_form_image">
-                <div class="d-flex flex-column justify-content-center align-items-center w-10" class="container_login_image">
-                    <img class="img-fluid w-50 mh-100" class="login_image" src="./../static/images/alessandro-bianchi-_kdTyfnUFAc-unsplash.jpg" alt="Laptop picture “DIGITAL MINIMALISM.”">
-                    <a class="text-black py-2" href="#">Create an account</a>
-                </div>
                 <div class="d-flex flex-column justify-content-center align-items-center" class="container_form">
-                    <form class="p-4 m-5 justify-content-center align-items-center" class="form_login" action="">
+                    <form class="p-2 m-5 justify-content-center align-items-center" class="form_login" action="">
                         <div class="container_inputs">
                             <div class="py-4">
                                 <h2>
-                                    Sign in
+                                    Register
                                 </h2>
                             </div>
                             <div>
@@ -38,18 +34,39 @@
                                     Email Address: 
                                 </label> -->
                                 <img class="login_icon" src="./../static/images/2931147_user_face_avatar_account_head_icon.png" alt="user icon">
+                                <input class="form-control-plaintext" type="text" id="first_name" name="first_name" placeholder="First Name"/>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
+                                <!-- <label class="col-sm-2 col-form-label" for="email">
+                                    Email Address: 
+                                </label> -->
+                                <img class="login_icon" src="./../static/images/2931147_user_face_avatar_account_head_icon.png" alt="user icon">
+                                <input class="form-control-plaintext" type="text" id="last_name" name="last_name" placeholder="Last Name"/>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
+                                <!-- <label class="col-sm-2 col-form-label" for="email">
+                                    Email Address: 
+                                </label> -->
+                                <img class="login_icon" src="./../static/images/2931172_email_message_letter_mail_send_icon.png" alt="user icon">
                                 <input class="form-control-plaintext" type="email" id="email" name="email" placeholder="Email"/>
                             </div>
                             <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
                                 <!-- <label class="col-sm-2 col-form-label" for="users_password">
                                     Password: 
                                 </label> -->
-                                <img class="login_icon" src="./../static/images/2931164_clef_key_lock_unlock_password_icon.png" alt="password icon">
+                                <img class="login_icon" src="./../static/images/2849796_lock_security_multimedia_close_protection_icon.png" alt="password icon">
                                 <input class="form-control-plaintext"  type="password" name="users_password" id="users_password" placeholder="Password"/>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
+                                <!-- <label class="col-sm-2 col-form-label" for="users_password">
+                                    Password: 
+                                </label> -->
+                                <img class="login_icon" src="./../static/images/2931164_clef_key_lock_unlock_password_icon.png" alt="password icon">
+                                <input class="form-control-plaintext"  type="password" name="confirm_users_password" id="confirm_users_password" placeholder="Confirm Password"/>
                             </div>
                             <div class="d-flex flex-row justify-content-start align-items-center e-5 py-3">
                                 <input class="mx-1" id="signin_preference" name="signin_preference" type="checkbox">
-                                <label for="signin_preference"> Remember me</label>
+                                <label for="signin_preference">I agree all statements in <a class="text-black" href="#">terms of service</a></label>
                             </div>
                             <div class="mb-3 row">
                                 <input class="btn btn-primary" type="submit" value="Log in" name="buttonSubmitForm" id="buttonSubmitForm">
@@ -60,12 +77,16 @@
                             </div>
                         </div>
                     </form>
-                    <div class="d-flex flex-row justify-content-center align-items-center">
+                    <!-- <div class="d-flex flex-row justify-content-center align-items-center">
                         <p class="login_icon">Or login with </p>
                         <img class="login_icon" src="./../static/images/3225194_app_facebook_logo_media_popular_icon.png" alt="facebook icon">
                         <img class="login_icon" src="./../static/images/3225183_app_logo_media_popular_social_icon.png" alt="twitter icon">
                         <img class="login_icon" src="./../static/images/2993685_brand_brands_google_logo_logos_icon.png" alt="google icon">
-                    </div>
+                    </div> -->
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center w-10" class="container_login_image">
+                    <img class="img-fluid w-50 mh-100" class="login_image" src="./../static/images/charles-deluvio-Mv9hjnEUHR4-unsplash.jpg" alt="Laptop picture “DIGITAL MINIMALISM.”">
+                    <a class="text-black py-2" href="#">Log in</a>
                 </div>
             </div>
         </main>
