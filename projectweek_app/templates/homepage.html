@@ -5,35 +5,74 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-        <link rel="stylesheet" href="./../static/css/homepage.css">
+        <link rel="stylesheet" href="./../static/css/home.css">
         <title>Home</title>
     </head>
     <body>
         <header>
-            <nav class="nav justify-content-center p-2 " class="nav_background">
-                <h2 class="nav-item" class="nav_tittle">
-                    "Hola"
+            <nav class="nav, d-flex align-self-center flex-row, shadow-sm p-3 mb-5 bg-body rounded" class="nav_background">
+                <h2 class="nav-item px-3 flex-grow-1" class="nav_tittle">
+                    "Tittle here"
                 </h2>
-                <div>
-                    <ul class="list-unstyled px-2">
-                        <li>
-                            <a href="#">
+                <div class="text-black d-flex justify-content-end align-self-center flex-1 px-4">
+                    <ul class="list-unstyled px-2 d-flex flex-row">
+                        <li class="px-3">
+                            <a class="text-black" href="#">
                                 News
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="px-3">
+                            <a class="text-black" href="#">
                                 Home
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="px-3">
+                            <a class="text-black" href="#">
                                 Log out
                             </a>
+                        </li>
+                        <li class="px-3">
+                            <p>Wellcome Username!</p>
+                        </li>
+                        <li class="px-3">
+                            <!-- <p>User name here</p> -->
+                            <img class="login_icon" src="./../static/images/user (1).png" alt="user icon">
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
+        <main class="d-flex flex-row bg-dark py-4">
+            <div class="d-flex flex-column px-3 flex-grow-1 ">
+                <nav class="nav, d-flex flex-row, shadow-sm p-3 mb-5 bg-body rounded" class="nav_background">
+                    <input class="form-control-plaintext" type="text" id="idea" name="user_idea" placeholder="Any good idea?"/>
+                    <input class="btn btn-dark" type="submit" value="Publish" name="buttonSubmitForm" id="buttonSubmitForm">
+                </nav>
+            </div>
+            <div class="d-flex flex-column px-3">
+                <table class="table table-dark table-striped">
+                    <thead style="align-items: center; justify-content: center; text-align: center;">
+                        <td class="col-auto px-5">
+                            Minds
+                        </td>
+                        <td class="col-auto px-5">
+                            Actions
+                        </td>
+                    </thead>
+                    <tbody>
+                        {% for i in users: %}
+                        <tr>                   
+                            <td class="fs-4" style="align-items: center; justify-content: center; text-align: center;">
+                                {{i['first_name']}}
+                            </td>
+                            <td class="fs-4" style="align-items: center; justify-content: center; text-align: center;">
+                                <a href="/user/{{i['users_id']}}">Profile</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </body>
 </html>
