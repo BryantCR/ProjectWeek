@@ -16,6 +16,8 @@ class User:
         self.users_password = users_password
         self.created_at = created_at
 
+    ################################################## INSERT USER DB ###################################
+
     @classmethod
     def register_login(cls, data):
         query = "INSERT INTO users (first_name, last_name, email, users_password, created_at, updated_at) VALUES ( %(first_name)s , %(last_name)s , %(email)s, %(encryptedpassword)s, SYSDATE(), SYSDATE());"
@@ -31,6 +33,8 @@ class User:
         print("RESULT LOGIN", result)
         return result
     
+    ################################################## LOGIN ###################################
+
     @classmethod
     def user_login(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
@@ -41,11 +45,15 @@ class User:
         result = connectToMySQL('python_exam').query_db( query, data2 )
         return result
 
+    ################################################## GET ONE USER ###################################
+
     @classmethod
     def get_userBy_id( cls, data ):
         query = "SELECT * FROM users WHERE users_id = %(users_id)s;"
         results = connectToMySQL('python_exam').query_db( query, data )
         return results
+
+    ################################################## GET ALL USERS ###################################
 
     @classmethod 
     def get_all_users( cls, data ):
@@ -56,6 +64,8 @@ class User:
         for n in results:
             users.append( User( n['users_id'], n['first_name'], n['last_name'], n['email'], n['users_password'], n['created_at'] ) )
         return users
+
+    ################################################## ????????????????? ###################################
 
     @classmethod
     def get_user_to_validate( cls, username ):
@@ -110,6 +120,7 @@ class User:
         if data[3] != data[5]:
             flash("Passwords must match, try again")
             isValid = False
+            
         return isValid
 
 #####################################################################################################################################

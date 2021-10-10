@@ -1,12 +1,47 @@
+from flask import render_template, request, session, redirect
+from python_exam_app import app
+from python_exam_app.models.User import User
+from flask_bcrypt import Bcrypt
 
+bcrypt = Bcrypt(app)
 
+@app.route( "/" ) #redirect allway to login
+def redirectFirstPage():
+    return redirect ('/login')
 
+    ##################################### LOGIN ##################################
 
+@app.route('/login')
+def displayLoginform():
+    return render_template( "login.html")
 
+@app.route('/home')
+def displayDashboard():
+    pass
 
+    ##################################### REGISTER ##################################
 
+@app.route('/register')
+def displayRegistrationform():
+    return render_template( "register.html")
 
+@app.route('/register/newuser', methods = ['POST'])
+def loadToDBUserInfo():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    users_password = request.form['users_password']
+    encryptedpassword = bcrypt.generate_password_hash(users_password)
+    confirm_users_password = request.form['confirm_users_password']
 
+    data = (first_name,last_name,email,users_password,encryptedpassword,confirm_users_password)
+    print("FROM FORM 1 REGISTER: ", data )
+    print("END OF REGISTER PART", data)
+    if User.validate_registration(data):
+        User.register_login(data)
+    else:
+        print("invalid values")
+    return redirect('/login')
 
 
 
