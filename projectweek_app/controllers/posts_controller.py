@@ -24,3 +24,12 @@ def sendPostu():
     print("END OF POST")
     return redirect('/home')
 
+    ##################################### DELETE POST ##################################
+
+@app.route("/home/delete/<id>")
+def deleteThisPost(id):
+    if 'users_id' not in session:
+        return redirect("/")
+    Postu.delete_post(id)
+    return redirect('/home')
+

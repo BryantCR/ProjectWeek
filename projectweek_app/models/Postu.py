@@ -11,6 +11,8 @@ class Postu:
         self.created_at = created_at
         self.user_id = user_id
 
+    ################################################## INSERT AND UPDATE LIKES TABLE ###################################
+
     @classmethod
     def send_post(cls, data):
         query = "INSERT INTO posts (posts_content, user_id, created_at, updated_at) VALUES ( %(posts_content)s, %(user_id)s, SYSDATE(), SYSDATE());"
@@ -30,6 +32,20 @@ class Postu:
         result = connectToMySQL('project_app').query_db( query )
         print("RESULT GET ALL POSTS: ", result)
         return result
+
+    ################################################## DELETE ###################################
+
+    @classmethod
+    def delete_post(cls, id ):
+        data = {
+            "id" : id
+        }
+        # query = "DELETE FROM users_cars WHERE cars_cars_id = %(id)s;"
+        # result1 = connectToMySQL('python_exam').query_db( query, data )
+
+        query = "DELETE FROM posts WHERE posts_id = %(id)s;"
+        result = connectToMySQL('project_app').query_db( query, data )
+        return result #, result1
 
     ###################################################################### STATIC METHODS
 

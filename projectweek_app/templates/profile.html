@@ -68,6 +68,41 @@
             {% endfor %}
             <div class="px-4 d-flex flex-row justify-content-start align-text-bottom">
                 <h5 class="text-decoration-underline fw-bold">
+                    All posts
+                </h5>
+            </div>
+            <div>
+                <table class="table table-dark table-sm">
+                    <thead style="align-items: center; justify-content: center; text-align: center;">
+                        <td class="col-auto px-5">
+                            Post
+                        </td>
+                        <td class="col-auto px-5">
+                            Comments
+                        </td>
+                        <td class="col-auto px-5">
+                            Likes
+                        </td>
+                        <td class="col-auto px-5">
+                            Actions
+                        </td>
+                    </thead>
+                    <tbody>
+                        {% for i in table_users: %}
+                        <tr>                   
+                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                {{i['first_name']}} {{i['last_name']}}
+                            </td>
+                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                <a class="" href="/{{i['first_name']}}/{{i['users_id']}}">Profile</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="px-4 d-flex flex-row justify-content-start align-text-bottom">
+                <h5 class="text-decoration-underline fw-bold">
                     Trophees
                 </h5>
             </div>
