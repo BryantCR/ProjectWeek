@@ -48,10 +48,21 @@ class User:
     ################################################## GET ONE USER ###################################
 
     @classmethod
-    def get_userBy_id( cls, data ):
-        query = "SELECT * FROM users WHERE users_id = %(users_id)s;"
+    def get_userInformationBy_id( cls, data ):
+        query = "SELECT * FROM users WHERE users_id = %(id)s;"
         results = connectToMySQL('project_app').query_db( query, data )
-        return results
+        print("RESULT USER BY ID", results)
+        #return results
+        user = []
+        for n in results:
+            user.append( User( n['users_id'], n['first_name'], n['last_name'], n['email'], n['users_password'], n['created_at'] ) )
+        return user
+
+    # @classmethod
+    # def get_userBy_id( cls, data ):
+    #     query = "SELECT * FROM users WHERE users_id = %(users_id)s;"
+    #     results = connectToMySQL('python_exam').query_db( query, data )
+    #     return results
 
     ################################################## GET ALL USERS ###################################
 
@@ -102,26 +113,33 @@ class User:
             "confirm_users_password" : data[5]
         }
         results = connectToMySQL('project_app').query_db( query, data2 )
+        print("FROM VALIDATE REGISTRATION: ", results)
         if len(results)>=1:
             flash("Email already registered")
+            print("Email already registered")
             isValid = False
         if len( data[0] ) < 2:
             flash( "First name must be at least 2 characters long" )
+            print( "First name must be at least 2 characters long" )
             isValid = False 
         if len( data[1] ) < 2:
             flash( "Last name must be at least 2 characters long")
             isValid = False
         if not EMAIL_REGEX.match(data[2]):
             flash("Email Address must have a valid format, try with a new one please")
+            print("Email Address must have a valid format, try with a new one please")
             isValid = False
         if len(data[3]) < 8:
             flash("Password must be at least 8 characters long")
+            print("Password must be at least 8 characters long")
             isValid = False
         if data[3] != data[5]:
             flash("Passwords must match, try again")
+            print("Passwords must match, try again")
             isValid = False
         if len(data[0]) == 0 or len(data[1]) == 0 or len(data[2]) == 0 or len(data[3]) == 0 or len(data[4]) == 0:
             flash("There is an empty data space try to fill it")
+            print("There is an empty data space try to fill it")
             isValid = False
         return isValid
 
