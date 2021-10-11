@@ -1,6 +1,7 @@
 from flask import render_template, request, session, redirect
 from projectweek_app import app
 from projectweek_app.models.User import User
+from projectweek_app.models.Postu import Postu
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt(app)
@@ -42,7 +43,7 @@ def redirectToHome():
             print("CURRENT IN SESSION", session)
             return redirect ('/home')
         else:
-            messageWrongPass = "Wrong credentials provided."
+            messageWrongPass = "Password: Wrong credentials provided."
             session['ErrorMessage'] = messageWrongPass
     else:
         messageWrongPass = "There is no user with this information"
@@ -61,8 +62,9 @@ def displayDashboard():
         'users_id': session['users_id']
     }
     fillTable = User.get_all_users(data)
+    postus = Postu.get_all_posts()
     print("WORKING ON THIS", fillTable)
-    return render_template( "homepage.html", inSessionData = currentUser, table_users = fillTable)
+    return render_template( "homepage.html", inSessionData = currentUser, table_users = fillTable, allPostus = postus)
 
     ##################################### REGISTER ##################################
 

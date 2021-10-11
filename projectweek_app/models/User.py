@@ -90,13 +90,13 @@ class User:
 ###################################################################### STATIC METHODS
 
     @staticmethod
-    def validate_login( data ):
+    def validate_login():
         is_valid = True
         if not EMAIL_REGEX.match(data['email']): 
-            flash("Invalid email address!", "login")
+            flash("Invalid email address!")
             is_valid = False
         if len(data['users_password']) < 8:
-            flash("Please enter a password. Passwords are at least 8 characters long", "login")
+            flash("Passwords are at least 8 characters long")
             is_valid = False
         return is_valid
 
@@ -119,26 +119,26 @@ class User:
             print("Email already registered")
             isValid = False
         if len( data[0] ) < 2:
-            flash( "First name must be at least 2 characters long" )
+            flash( "First name must be at least 2 characters long" ),
             print( "First name must be at least 2 characters long" )
             isValid = False 
         if len( data[1] ) < 2:
             flash( "Last name must be at least 2 characters long")
             isValid = False
         if not EMAIL_REGEX.match(data[2]):
-            flash("Email Address must have a valid format, try with a new one please")
+            flash("Email Address must have a valid format, try with a new one please"),
             print("Email Address must have a valid format, try with a new one please")
             isValid = False
         if len(data[3]) < 8:
-            flash("Password must be at least 8 characters long")
+            flash("Password must be at least 8 characters long"),
             print("Password must be at least 8 characters long")
             isValid = False
         if data[3] != data[5]:
-            flash("Passwords must match, try again")
+            flash("Passwords must match, try again"),
             print("Passwords must match, try again")
             isValid = False
         if len(data[0]) == 0 or len(data[1]) == 0 or len(data[2]) == 0 or len(data[3]) == 0 or len(data[4]) == 0:
-            flash("There is an empty data space try to fill it")
+            flash("There is an empty data space try to fill it"),
             print("There is an empty data space try to fill it")
             isValid = False
         return isValid
