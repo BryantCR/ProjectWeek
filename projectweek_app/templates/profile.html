@@ -88,13 +88,20 @@
                         </td>
                     </thead>
                     <tbody>
-                        {% for i in table_users: %}
-                        <tr>                   
+                        {% for i in fromPostDBById: %}
+                        <tr>
+                                <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                    {{i['posts_content']}}
+                                </td>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
-                                {{i['first_name']}} {{i['last_name']}}
+                                {{i['posts_content']}}
                             </td>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
-                                <a class="" href="/{{i['first_name']}}/{{i['users_id']}}">Profile</a>
+                                {{i['likes_count']}}
+                            </td>
+                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                <a href="/home/delete/{{i['posts_id']}}" class="my-1 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
+                                <input class="my-1 btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">
                             </td>
                         </tr>
                         {% endfor %}

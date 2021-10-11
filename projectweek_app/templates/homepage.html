@@ -63,16 +63,16 @@
                     </nav>
                 </form>
                 {% for post in allPostus %}
-                    <div class="mx-5 d-flex flex-row text-white">
+                    <div class="m-3 d-flex flex-row text-white bg-secondary rounded">
                         <h6 class="mx-2 fw-bold text-decoration-underline">
                             {{post['first_name']}} had an idea: 
                         </h6>
                         <div class="d-flex flex-column mx-5">
                             <input class="form-control-plaintext bg-secondary text-white p-3 rounded m-2" type="text" name="posts_content" placeholder="Post" value="{{post['posts_content']}}" disabled readonly/>
-                            <p class="text_white">{{post['created_at']}}</p>
-                            <form action="/home/post/like" method="POST">
+                            <!-- <p class="text_white">{{post['created_at']}}</p> -->
+                            <form class="d-flex flex-row" action="/home/post/like" method="POST">
                                 <div class="likes_count">
-                                    <button type="submit" value="1" class = "likelink" name="likes_count" onclick="increaselikes()" class = ""> Like </button>
+                                    <button type="submit" value="1" class = "likelink" name="likes_count" onclick="increaselikes()"> Like </button>
                                     <a href=""><span class="numberLikes">0</span> peoble liked this post</a>
                                     <input type="hidden" name="users_id" value="{{session['users_id']}}"/>
                                     <input type="hidden" name="posts_id" value="{{post['posts_id']}}"/>
@@ -81,7 +81,7 @@
                         </div>
                         <div class=" d-flex flex-column">
                             {% if post['user_id'] == session['users_id'] %}
-                                <a href="/home/delete/{{post['posts_id']}}" class="my-1 btn btn-danger" type="submit" value=" × " name="buttonSubmitForm" id="buttonSubmitForm"></a>>
+                                <a href="/home/delete/{{post['posts_id']}}" class="my-1 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
                                 <input class="my-1 btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">
                             {% endif %}
                         </div>

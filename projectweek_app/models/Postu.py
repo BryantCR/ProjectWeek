@@ -28,9 +28,20 @@ class Postu:
 
     @classmethod 
     def get_all_posts(cls):
-        query = "SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id FROM users LEFT JOIN posts ON users.users_id = posts.user_id WHERE posts_id > 0;"
+        query = "SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id, posts.created_at FROM users LEFT JOIN posts ON users.users_id = posts.user_id WHERE posts_id > 0;"
         result = connectToMySQL('project_app').query_db( query )
         print("RESULT GET ALL POSTS: ", result)
+        return result
+
+    ################################################## GET ALL POST FROM A SINGLE USER ###################################
+
+    @classmethod
+    def get_post_from_one_user(cls, id):
+        data = {
+            "id" : id
+        }
+        query = "SELECT * FROM users LEFT JOIN posts on users.users_id = posts.user_id LEFT JOIN likes ON users.users_id = likes.user_id WHERE users_id = %(id)s;"
+        result = connectToMySQL('project_app').query_db( query, data )
         return result
 
     ################################################## DELETE ###################################

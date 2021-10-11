@@ -103,7 +103,9 @@ def displayUserProfile(name, id):
     userData = User.get_userInformationBy_id(data)
     print("SINGLE USER DATA: ", userData)
     currentUser = session
-    return render_template('profile.html', inSessionData = currentUser, user_In_Table = userData)
+    postusById = Postu.get_post_from_one_user(id)
+    print("ALL POST FROM ID: ", postusById)
+    return render_template('profile.html', inSessionData = currentUser, user_In_Table = userData, fromPostDBById = postusById)
 
     ##################################### LOGOUT ##################################
 
