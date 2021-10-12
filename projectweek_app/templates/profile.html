@@ -113,6 +113,11 @@
                 <h5 class="text-decoration-underline fw-bold">
                     Trophees
                 </h5>
+                <div>
+                    {% if fromPostDBById[0]['post_likes'] > 25 %}
+                        <p>Success</p>
+                    {% endif %}
+                </div>
             </div>
         </main>
     </body>

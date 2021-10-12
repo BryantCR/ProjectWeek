@@ -43,6 +43,17 @@ class Postu:
         result = connectToMySQL('project_app').query_db( query, data )
         return result
 
+    ################################################## GET POST FROM A SINGLE USER ###################################
+
+    @classmethod
+    def get_single_post(cls, id):
+        data = {
+            "id" : id
+        }
+        query = "SELECT * FROM users LEFT JOIN posts on users.users_id = posts.user_id LEFT JOIN likes ON users.users_id = likes.user_id WHERE posts_id = %(id)s;"
+        result = connectToMySQL('project_app').query_db( query, data )
+        return result
+
     ################################################## DELETE ###################################
 
     @classmethod
@@ -56,6 +67,7 @@ class Postu:
         query = "DELETE FROM posts WHERE posts_id = %(id)s;"
         result = connectToMySQL('project_app').query_db( query, data )
         return result #, result1
+
 
     ###################################################################### STATIC METHODS
 

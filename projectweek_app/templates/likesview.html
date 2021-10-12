@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Likes</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <link rel="stylesheet" href="./../static/css/home.css">
+    </head>
+    <body>
+        <header>
+            <nav class="nav, d-flex align-self-center flex-row, shadow-sm p-3 mb-5 bg-body rounded" class="nav_background">
+                <h2 class="nav-item px-3 flex-grow-1" class="nav_tittle">
+                    "Tittle here"
+                </h2>
+                <div class="text-black d-flex justify-content-end align-self-center flex-1 px-4">
+                    <ul class="list-unstyled px-2 d-flex flex-row">
+                        <li class="px-3">
+                            <a class="text-black" href="#">
+                                News
+                            </a>
+                        </li>
+                        <li class="px-3">
+                            <a class="text-black" href="/home">
+                                Home
+                            </a>
+                        </li>
+                        <li class="px-3">
+                            <a class="text-black" href="/logout">
+                                Log out
+                            </a>
+                        </li>
+                        <li class="px-3">
+                            <a class="text-black" href="/{{inSessionData['first_name']}}/{{inSessionData['users_id']}}">
+                                Profile
+                            </a>
+                        </li>
+                        <li class="px-3">
+                            <h5>{{inSessionData['first_name']}}</h5>
+                        </li>
+                        <li class="px-3">
+                            <!-- <p>User name here</p> -->
+                            <img class="login_icon" src="./../static/images/user (1).png" alt="user icon">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="d-flex flex-column">
+            <div class="bg-dark p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm border border-secondary">
+                <div>
+                    <h6 class="m-2 fw-bold">
+                        {{singleUserPost[0]['first_name']}}
+                    </h6>
+                </div>
+                <div class="d-flex flex-column m-2 flex-grow-1">
+                    <div class="form-floating">
+                        <p class="fs-6">
+                            @{{singleUserPost[0]['first_name']}}{{singleUserPost[0]['last_name']}}
+                        </p>
+                        <div class="border border-secondary">
+                            <p class="form-control-plaintext w-100 text-white p-1 rounded m-2 align-text-center" type="text" name="posts_content" placeholder="Post" value="{{singleUserPost[0]['posts_content']}}" disabled readonly>
+                                "{{singleUserPost[0]['posts_content']}}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table class="table table-dark table-sm">
+                    <thead style="align-items: center; justify-content: center; text-align: center;">
+                        <td class="col-auto px-5">
+                            Alias
+                        </td>
+                        <td class="col-auto px-5">
+                            Name
+                        </td>
+                    </thead>
+                    <tbody>
+                        {% for i in table_users: %}
+                        <tr>
+                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                {{i['first_name']}} {{i['last_name']}}
+                            </td>
+                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                <a class="" href="/{{i['first_name']}}/{{i['users_id']}}">Profile</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>

@@ -19,4 +19,8 @@ def sendLikeDB():
     print("LIKESSSSSSSSSS RESULT: ", result)
     return redirect('/home')
 
-
+@app.route('/post/likes/<id>', methods = ['GET'])
+def likePostViews(id):
+    currentUser = session
+    usersPost = Postu.get_single_post(id)
+    return render_template( "likesview.html", inSessionData = currentUser, singleUserPost = usersPost)

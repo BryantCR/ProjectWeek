@@ -62,7 +62,6 @@ def displayDashboard():
     }
     fillTable = User.get_all_users(data)
     postus = Postu.get_all_posts()
-    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", postus)
     return render_template( "homepage.html", inSessionData = currentUser, table_users = fillTable, allPostus = postus)
 
     ##################################### REGISTER ##################################
