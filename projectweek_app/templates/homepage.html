@@ -32,6 +32,11 @@
                             </a>
                         </li>
                         <li class="px-3">
+                            <a class="text-black" href="/{{inSessionData['first_name']}}/{{inSessionData['users_id']}}">
+                                Profile
+                            </a>
+                        </li>
+                        <li class="px-3">
                             <h5>Wellcome {{inSessionData['first_name']}}!</h5>
                         </li>
                         <li class="px-3">
@@ -57,32 +62,40 @@
                 </div>
                 <form class="justify-content-center align-items-center" class="form_login" action="/home/post" method="POST">
                     <nav class="nav, d-flex flex-row, shadow-sm p-3 mb-5 bg-body rounded" class="nav_background">
-                        <input class="form-control-plaintext" type="text" id="idea" name="posts_content" placeholder="Any good idea?"/>
+                        <input class="form-control-plaintext" type="text" id="idea" name="posts_content" placeholder="Any good idea?" autocomplete="off"/>
                         <input class="btn btn-dark" type="submit" value="Send" name="buttonSubmitForm" id="buttonSubmitForm">
                         <input type="hidden" name="users_id" value="{{session['users_id']}}"/>
                     </nav>
                 </form>
                 {% for post in allPostus %}
-                    <div class="m-3 d-flex flex-row text-white bg-secondary rounded">
-                        <h6 class="mx-2 fw-bold text-decoration-underline">
-                            {{post['first_name']}} had an idea: 
-                        </h6>
-                        <div class="d-flex flex-column mx-5">
-                            <input class="form-control-plaintext bg-secondary text-white p-3 rounded m-2" type="text" name="posts_content" placeholder="Post" value="{{post['posts_content']}}" disabled readonly/>
-                            <!-- <p class="text_white">{{post['created_at']}}</p> -->
-                            <form class="d-flex flex-row" action="/home/post/like" method="POST">
+                    <div class=" p-1 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm border border-secondary">
+                        <div>
+                            <h6 class="m-2 fw-bold">
+                                {{post['first_name']}}
+                            </h6>
+                        </div>
+                        <div class="d-flex flex-column m-2 flex-grow-1">
+                            <div class="form-floating">
+                                <p class="text-decoration-underline fs-6">
+                                    @{{post['first_name']}} {{post['last_name']}}
+                                </p>
+                                <p class="form-control-plaintext w-100 text-white p-1 rounded m-2 align-text-center" type="text" name="posts_content" placeholder="Post" value="{{post['posts_content']}}" disabled readonly>
+                                    {{post['posts_content']}}
+                                </p>
+                            </div>
+                            <form class="d-flex flex-row mx-3" action="/home/post/like" method="POST">
                                 <div class="likes_count">
-                                    <button type="submit" value="1" class = "likelink" name="likes_count" onclick="increaselikes()"> Like </button>
-                                    <a href=""><span class="numberLikes">0</span> peoble liked this post</a>
+                                    <button type="submit" value="1" class = "likelink" name="likes_counts" onclick="increaselikes()"> Like </button>
+                                    <a class="text-white mx-1 text-decoration-none fw-bold" href=""><span class="numberLikes">{{post['post_likes']}}</span> Likes</a>
                                     <input type="hidden" name="users_id" value="{{session['users_id']}}"/>
                                     <input type="hidden" name="posts_id" value="{{post['posts_id']}}"/>
                                 </div>
                             </form>
                         </div>
-                        <div class=" d-flex flex-column">
+                        <div class="d-flex flex-row mx-3">
                             {% if post['user_id'] == session['users_id'] %}
-                                <a href="/home/delete/{{post['posts_id']}}" class="my-1 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
-                                <input class="my-1 btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">
+                                <a href="/home/delete/{{post['posts_id']}}" class=" m-2 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
+                                <a href="/home/delete/{{post['a']}}" class="btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">Edit</a>
                             {% endif %}
                         </div>
                     </div>
@@ -100,7 +113,7 @@
                     </thead>
                     <tbody>
                         {% for i in table_users: %}
-                        <tr>                   
+                        <tr>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
                                 {{i['first_name']}} {{i['last_name']}}
                             </td>
@@ -113,6 +126,10 @@
                 </table>
             </div>
         </main>
+        <footer class="nav justify-content-center p-2 "class="nav_background">
+            <p>Author: Bryan Cascante Vargas<br>
+            <a href="#">bryancvargas20@gmail.com</a></p>
+        </footer>
         <script src="./../static/js/index.js"></script>
     </body>
 </html>

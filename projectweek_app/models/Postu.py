@@ -11,11 +11,11 @@ class Postu:
         self.created_at = created_at
         self.user_id = user_id
 
-    ################################################## INSERT AND UPDATE LIKES TABLE ###################################
+    ################################################## INSERT AND UPDATE ###################################
 
     @classmethod
     def send_post(cls, data):
-        query = "INSERT INTO posts (posts_content, user_id, created_at, updated_at) VALUES ( %(posts_content)s, %(user_id)s, SYSDATE(), SYSDATE());"
+        query = "INSERT INTO posts (posts_content, user_id, post_likes, created_at, updated_at) VALUES ( %(posts_content)s, %(user_id)s, 0, SYSDATE(), SYSDATE());"
         data2 = {
             "posts_content" : data[0],
             "user_id" : data[1],
@@ -28,9 +28,8 @@ class Postu:
 
     @classmethod 
     def get_all_posts(cls):
-        query = "SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id, posts.created_at FROM users LEFT JOIN posts ON users.users_id = posts.user_id WHERE posts_id > 0;"
+        query = "SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id, posts.created_at, posts.post_likes FROM users LEFT JOIN posts ON users.users_id = posts.user_id WHERE posts_id > 0;"
         result = connectToMySQL('project_app').query_db( query )
-        print("RESULT GET ALL POSTS: ", result)
         return result
 
     ################################################## GET ALL POST FROM A SINGLE USER ###################################
@@ -51,8 +50,8 @@ class Postu:
         data = {
             "id" : id
         }
-        # query = "DELETE FROM users_cars WHERE cars_cars_id = %(id)s;"
-        # result1 = connectToMySQL('python_exam').query_db( query, data )
+        query = "DELETE FROM likes WHERE post_id = %(id)s;"
+        result1 = connectToMySQL('project_app').query_db( query, data )
 
         query = "DELETE FROM posts WHERE posts_id = %(id)s;"
         result = connectToMySQL('project_app').query_db( query, data )

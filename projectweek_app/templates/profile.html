@@ -50,18 +50,18 @@
                     </h5>
                 </div>
                 <div class="px-4 d-flex flex-row justify-content-start align-text-center">
-                    <h6 class="fw-bold">
+                    <h6 class="fw-bold align-items-center">
                         Alias: 
                     </h6>
-                    <p class="px-3 align-items-center">
-                        {{user['first_name']}}
+                    <p class="px-2 align-items-center">
+                        @{{user['first_name']}}
                     </p>
                 </div>
                 <div class="px-4 d-flex flex-row justify-content-start align-text-center">
-                    <h6 class="fw-bold">
+                    <h6 class="fw-bold align-items-center">
                         Email: 
                     </h6>
-                    <p class="px-3 align-items-center">
+                    <p class="px-2 align-items-center">
                         {{user['email']}}
                     </p>
                 </div>
@@ -83,16 +83,18 @@
                         <td class="col-auto px-5">
                             Likes
                         </td>
-                        <td class="col-auto px-5">
-                            Actions
-                        </td>
+                        {% if fromPostDBById[0]['user_id'] == session['users_id'] %}
+                            <td class="col-auto px-5">
+                                Actions
+                            </td>
+                        {% endif %}
                     </thead>
                     <tbody>
                         {% for i in fromPostDBById: %}
-                        <tr>
-                                <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
-                                    {{i['posts_content']}}
-                                </td>
+                        <tr class="col-auto px-5">
+                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                                {{i['posts_content']}}
+                            </td>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
                                 {{i['posts_content']}}
                             </td>
@@ -100,8 +102,10 @@
                                 {{i['likes_count']}}
                             </td>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
-                                <a href="/home/delete/{{i['posts_id']}}" class="my-1 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
-                                <input class="my-1 btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">
+                                {% if i['user_id'] == session['users_id'] %}
+                                    <a href="/home/delete/{{i['posts_id']}}" class="my-1 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
+                                    <input class="my-1 btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}

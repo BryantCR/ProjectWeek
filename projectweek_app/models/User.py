@@ -70,7 +70,7 @@ class User:
     def get_all_users( cls, data ):
         query = "SELECT * FROM users WHERE users_id != %(users_id)s ORDER BY first_name;"
         results = connectToMySQL('project_app').query_db(query,data)
-        print("RESULT GET ALL USERS MODEL", results)
+        #print("RESULT GET ALL USERS MODEL", results)
         users = []
         for n in results:
             users.append( User( n['users_id'], n['first_name'], n['last_name'], n['email'], n['users_password'], n['created_at'] ) )

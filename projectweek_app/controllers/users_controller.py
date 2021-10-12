@@ -55,7 +55,6 @@ def redirectToHome():
 @app.route('/home')
 def displayDashboard():
     currentUser = session
-    print("inSessionData: ", currentUser)
     if 'users_id' not in session:
         return redirect('/logout')
     data = {
@@ -63,7 +62,7 @@ def displayDashboard():
     }
     fillTable = User.get_all_users(data)
     postus = Postu.get_all_posts()
-    print("WORKING ON THIS", fillTable)
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", postus)
     return render_template( "homepage.html", inSessionData = currentUser, table_users = fillTable, allPostus = postus)
 
     ##################################### REGISTER ##################################
