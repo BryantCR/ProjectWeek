@@ -15,13 +15,13 @@ class Like:
 
     @classmethod
     def add_likes( cls, data ):
-        # query = "INSERT INTO likes (user_id, post_id, likes, created_at, updated_at) VALUES ( %(user_id)s, %(post_id)s, %(likes)s, SYSDATE(), SYSDATE());"
-        # data2 = {
-        #     "user_id" : data[1],
-        #     "post_id" : data[2],
-        #     "likes" : data[0]
-        # }
-        # result2 = connectToMySQL('project_app').query_db( query, data2 )
+        query = "INSERT INTO likes (user_id, post_id, likes, created_at, updated_at) VALUES ( %(user_id)s, %(post_id)s, %(likes)s, SYSDATE(), SYSDATE());"
+        data2 = {
+            "user_id" : data[1],
+            "post_id" : data[2],
+            "likes" : data[0]
+        }
+        result2 = connectToMySQL('project_app').query_db( query, data2 )
 
         query = "UPDATE posts SET post_likes = post_likes +1 WHERE posts_id = %(post_id)s;"
         data3 = {

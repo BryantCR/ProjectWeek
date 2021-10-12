@@ -79,9 +79,11 @@
                                 <p class="text-decoration-underline fs-6">
                                     @{{post['first_name']}} {{post['last_name']}}
                                 </p>
-                                <p class="form-control-plaintext w-100 text-white p-1 rounded m-2 align-text-center" type="text" name="posts_content" placeholder="Post" value="{{post['posts_content']}}" disabled readonly>
+                                <div class="border border-secondary m-2">
+                                    <p class="form-control-plaintext w-100 text-white p-1 rounded m-2 align-text-center" type="text" name="posts_content" placeholder="Post" value="{{post['posts_content']}}" disabled readonly>
                                     {{post['posts_content']}}
                                 </p>
+                                </div>
                             </div>
                             <form class="d-flex flex-row mx-3" action="/home/post/like" method="POST">
                                 <div class="likes_count">
@@ -101,7 +103,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="d-flex flex-column px-3 m-5 p-5">
+            <div class="d-flex flex-column m-4">
                 <table class="table table-dark table-sm">
                     <thead style="align-items: center; justify-content: center; text-align: center;">
                         <td class="col-auto px-5">

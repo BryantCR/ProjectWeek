@@ -39,7 +39,7 @@ class Postu:
         data = {
             "id" : id
         }
-        query = "SELECT * FROM users LEFT JOIN posts on users.users_id = posts.user_id LEFT JOIN likes ON users.users_id = likes.user_id WHERE users_id = %(id)s;"
+        query = "SELECT * FROM users LEFT JOIN posts on users.users_id = posts.user_id WHERE users_id = %(id)s;"
         result = connectToMySQL('project_app').query_db( query, data )
         return result
 
