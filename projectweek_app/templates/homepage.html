@@ -97,7 +97,7 @@
                             <div class="d-flex flex-row mx-3">
                                 {% if post['user_id'] == session['users_id'] %}
                                     <a href="/home/delete/{{post['posts_id']}}" class=" m-2 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
-                                    <a href="/home/delete/{{post['a']}}" class="btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">Edit</a>
+                                    <a href="/post/edit/{{post['posts_id']}}" class="btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">Edit</a>
                                 {% endif %}
                             </div>
                         </div>

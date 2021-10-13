@@ -101,7 +101,7 @@
                             <td class="fs-6">
                                 {% if i['user_id'] == session['users_id'] %}
                                     <a href="/home/delete/{{i['posts_id']}}" class="my-1 btn btn-danger" type="submit" name="buttonSubmitForm" id="buttonSubmitForm">×</a>
-                                    <input class="my-1 btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">
+                                    <a href="/post/edit/{{i['posts_id']}}" class="btn btn-warning" type="submit" value="Edit" name="buttonSubmitForm" id="buttonSubmitForm">Edit</a>
                                 {% endif %}
                             </td>
                         </tr>

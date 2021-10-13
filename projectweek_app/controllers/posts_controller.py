@@ -2,6 +2,8 @@ from flask import render_template, request, session, redirect
 from projectweek_app import app
 from projectweek_app.models.User import User
 from projectweek_app.models.Postu import Postu
+from projectweek_app.models.Like import Like
+
 
 from flask_bcrypt import Bcrypt
 
@@ -25,6 +27,17 @@ def sendPostu():
         return redirect('/home')
     print("END OF POST")
     return redirect('/home')
+
+    ##################################### EDIT POST ##################################
+
+@app.route("/post/edit/<id>", methods = ['GET'])
+def displayEditWindow(id):
+    if 'users_id' not in session:
+        return redirect('/logout')
+    currentUser = session
+    usersPost = Postu.get_single_post(id)
+    userWhoLiked = Like.users_who_liked(id)
+    return render_template( "editpost.html", inSessionData = currentUser, singleUserPost = usersPost, userWhoLiked = userWhoLiked)
 
     ##################################### DELETE POST ##################################
 
