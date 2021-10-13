@@ -38,7 +38,7 @@ class Postu:
 
     @classmethod 
     def get_all_posts(cls):
-        query = "SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id, posts.post_likes FROM users LEFT JOIN posts ON users.users_id = posts.user_id WHERE posts_id > 0 ORDER BY post_likes DESC;"
+        query = "SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id, posts.post_likes, posts.created_at FROM users LEFT JOIN posts ON users.users_id = posts.user_id WHERE posts_id > 0 ORDER BY post_likes DESC;"
         result = connectToMySQL('project_app').query_db( query )
         return result
 

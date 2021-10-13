@@ -76,8 +76,8 @@
                             </div>
                             <div class="d-flex flex-column m-2 flex-grow-1">
                                 <div class="form-floating">
-                                    <p class="text-decoration-underline fs-6">
-                                        @{{post['first_name']}} {{post['last_name']}}
+                                    <p class="fs-6">
+                                        @{{post['first_name']}}{{post['last_name']}}  {{post['created_at']}} 
                                     </p>
                                     <div class="border border-secondary m-2">
                                         <p class="form-control-plaintext w-100 text-white p-1 rounded m-2 align-text-center" type="text" name="posts_content" placeholder="Post" value="{{post['posts_content']}}" disabled readonly>
