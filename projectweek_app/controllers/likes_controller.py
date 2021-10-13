@@ -28,4 +28,5 @@ def likePostViews(id):
     currentUser = session
     usersPost = Postu.get_single_post(id)
     userWhoLiked = Like.users_who_liked(id)
+    print("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT", userWhoLiked)
     return render_template( "likesview.html", inSessionData = currentUser, singleUserPost = usersPost, userWhoLiked = userWhoLiked)
