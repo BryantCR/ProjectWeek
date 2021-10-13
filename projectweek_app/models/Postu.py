@@ -24,6 +24,16 @@ class Postu:
         print("RESULT SEND POSTU: ", result)
         return result
 
+    @classmethod
+    def update_post(cls, id):
+        query = "UPDATE posts SET posts_content = %(posts_content)s WHERE posts_id = %(post_id)s;"
+        data = {
+            "posts_content" : data[0],
+            "user_id" : data[1],
+        }
+        result = connectToMySQL('project_app').query_db( query, data )
+        return result
+
     ################################################## GET ALL POST ###################################
 
     @classmethod 
