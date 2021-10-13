@@ -25,7 +25,7 @@ class Postu:
         return result
 
     @classmethod
-    def update_post(cls, id):
+    def update_post(cls, data):
         query = "UPDATE posts SET posts_content = %(posts_content)s WHERE posts_id = %(post_id)s;"
         data = {
             "posts_content" : data[0],

@@ -36,8 +36,7 @@ def displayEditWindow(id):
         return redirect('/logout')
     currentUser = session
     usersPost = Postu.get_single_post(id)
-    userWhoLiked = Like.users_who_liked(id)
-    return render_template( "editpost.html", inSessionData = currentUser, singleUserPost = usersPost, userWhoLiked = userWhoLiked)
+    return render_template( "editpost.html", inSessionData = currentUser, singleUserPost = usersPost)
     
 @app.route( "/update/post/<id>", methods = ['POST'] ) 
 def updatePostu(id):
@@ -49,12 +48,12 @@ def updatePostu(id):
     post_id = request.form['post_id']
 
     data = (posts_content, user_id, post_id)
+    
     if Postu.validate_post(data):
         Postu.update_post(data)
     else:
         print("invalid values")
         return redirect('/post/edit/<id>')
-
     print("END OF POST")
     return redirect('/home')
 

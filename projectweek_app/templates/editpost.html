@@ -49,26 +49,39 @@
         </header>
         <main class="d-flex flex-column">
             <div class="bg-dark p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm border border-secondary">
-                <form class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1" action="/update/post/{{ singleUserPost[0]['post_id'] }}">
-                    <input type="hidden" value="{{singleUserPost[0]['user_id']}}" name="user_id"/>
-                    <input type="hidden" value="{{singleUserPost[0]['post_id']}}" name="post_id"/>
-                    <div>
-                        <h6 class="m-2 fw-bold">
-                            {{singleUserPost[0]['first_name']}}
-                        </h6>
-                    </div>
-                    <div class="d-flex flex-column m-2 flex-grow-1">
-                        <div class="form-floating">
-                            <p class="fs-6">
-                                @{{singleUserPost[0]['first_name']}}{{singleUserPost[0]['last_name']}}
-                            </p>
+                <form class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1" action="/update/post/{{singleUserPost[0]['posts_id']}}" method="POST">
+                    <div class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1">
+                        <div>
+                            <h6 class="m-2 fw-bold">
+                                {{singleUserPost[0]['first_name']}}
+                            </h6>
+                        </div>
+                        <div class="d-flex flex-column m-2 flex-grow-1">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea">{{singleUserPost[0]['posts_content']}}</textarea>
+                                <p class="fs-6">
+                                    @{{singleUserPost[0]['first_name']}}{{singleUserPost[0]['last_name']}}
+                                </p>
+                                <div>
+                                    {% with messages = get_flashed_messages() %}
+                                        {% if messages: %}
+                                            {% for message in messages: %}
+                                            <p>
+                                                {{message}}
+                                            </p>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="update_posts_content" >{{singleUserPost[0]['posts_content']}}</textarea>
+                                </div>
+                                <input type="hidden" value="{{singleUserPost[0]['user_id']}}" name="user_id"/>
+                                <input type="hidden" value="{{singleUserPost[0]['posts_id']}}" name="post_id"/>
                             </div>
                         </div>
+                        <input class="btn btn-warning" type="submit" value="Update">
+                        <a class="btn btn-danger" href="/home" value="Cancel">Cancel</a>
                     </div>
-                    <input class="m-2 btn btn-warning" type="submit" value="Update Post">
-                    <a class="btn btn-danger" href="/home" value="Cancel">Cancel</a>
                 </form>
             </div>
         </main>
