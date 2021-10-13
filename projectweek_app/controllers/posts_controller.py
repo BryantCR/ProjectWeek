@@ -9,6 +9,8 @@ from flask_bcrypt import Bcrypt
 
 @app.route( "/home/post", methods = ['POST'] ) 
 def sendPostu():
+    if 'users_id' not in session:
+        return redirect('/logout')
     posts_content = request.form['posts_content']
     user_id = request.form['users_id']
 
@@ -29,7 +31,7 @@ def sendPostu():
 @app.route("/home/delete/<id>")
 def deleteThisPost(id):
     if 'users_id' not in session:
-        return redirect("/")
+        return redirect("/logout")
     Postu.delete_post(id)
     return redirect('/home')
 

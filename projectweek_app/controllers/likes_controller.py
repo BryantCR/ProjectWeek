@@ -7,6 +7,8 @@ from projectweek_app.models.Like import Like
 
 @app.route('/home/post/like', methods = ['POST'])
 def sendLikeDB():
+    if 'users_id' not in session:
+        return redirect('/logout')
     post_likes = request.form['likes_counts']
     user_id = request.form['users_id']
     post_id = request.form['posts_id']
@@ -21,6 +23,9 @@ def sendLikeDB():
 
 @app.route('/post/likes/<id>', methods = ['GET'])
 def likePostViews(id):
+    if 'users_id' not in session:
+        return redirect('/logout')
     currentUser = session
     usersPost = Postu.get_single_post(id)
-    return render_template( "likesview.html", inSessionData = currentUser, singleUserPost = usersPost)
+    userWhoLiked = Like.users_who_liked(id)
+    return render_template( "likesview.html", inSessionData = currentUser, singleUserPost = usersPost, userWhoLiked = userWhoLiked)

@@ -5,7 +5,7 @@ Required
 X    (1) Log and Reg with validations 
 X    (1) User can [create] object to database
 X    (1) User can [read] or view objects retrieved from database
-O    (1) User may like, favorite, rsvp etc. [many-to-many]
+X    (1) User may like, favorite, rsvp etc. [many-to-many]
 X    (1) Use of Flask engine
 O    (1) User may [edit] profile or posted data
 X    (1) User may [delete] profile or posted data
@@ -20,6 +20,6 @@ Wireframes are attached as images to this email.
 
 Warmly,
 
-X-6
-O-7
+X-7
+O-6
 

@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <div class="justify-content-center">
+            <div class="justify-content-center m-5">
                 <div>
                     <h4 class="fw-bold">
                         Peopple who liked this post
@@ -83,10 +83,10 @@
                         </td>
                     </thead>
                     <tbody>
-                        {% for i in table_users: %}
+                        {% for i in userWhoLiked: %}
                         <tr>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
-                                {{i['first_name']}} {{i['last_name']}}
+                                @{{i['first_name']}}{{i['last_name']}}
                             </td>
                             <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
                                 <a class="" href="/{{i['first_name']}}/{{i['users_id']}}">Profile</a>

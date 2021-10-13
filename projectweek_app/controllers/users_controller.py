@@ -94,6 +94,8 @@ def loadToDBUserInfo():
 
 @app.route('/<name>/<int:id>', methods = ['GET'])
 def displayUserProfile(name, id):
+    if 'users_id' not in session:
+        return redirect('/logout')
     data = {
         "id" : id
     }

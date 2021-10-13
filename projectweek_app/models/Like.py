@@ -36,6 +36,13 @@ class Like:
         # for n in result:
         #     user.append( Like( n['likes_id'], n['user_id'], n['post_id'], n['likes_count'] ) )
         # return user
-
-
+    @classmethod
+    def users_who_liked(cls, id):
+        query = "SELECT DISTINCT likes.user_id, likes.post_id, users.first_name, users.last_name, users.users_id from likes left join posts on posts.posts_id = likes.post_id left join users on users.users_id = likes.user_id where post_id = %(id)s AND posts_id = %(id)s AND users.users_id = likes.user_id;"
+        data = {
+            "id" : id
+        }
+        result = connectToMySQL('project_app').query_db( query, data )
+        print("RESULT LIST LIKES: ", result)
+        return result
 #select likes, target post_likes, +1 test 2
