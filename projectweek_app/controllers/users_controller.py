@@ -76,19 +76,23 @@ def loadToDBUserInfo():
     last_name = request.form['last_name']
     email = request.form['email']
     users_password = request.form['users_password']
-    encryptedpassword = bcrypt.generate_password_hash(users_password)
     confirm_users_password = request.form['confirm_users_password']
 
-    data = (first_name,last_name,email,users_password,encryptedpassword,confirm_users_password)
-
-    print("FROM FORM 1 REGISTER: ", data )
-    print("END OF REGISTER PART", data)
-    if User.validate_registration(data):
-        User.user_Registration(data)
-    else:
-        print("invalid values")
+    if users_password == "":
         return redirect('/register')
-    return redirect('/login')
+    else:
+        encryptedpassword = bcrypt.generate_password_hash(users_password)
+
+        data = (first_name,last_name,email,users_password,encryptedpassword,confirm_users_password)
+
+        print("FROM FORM 1 REGISTER: ", data )
+        print("END OF REGISTER PART", data)
+        if User.validate_registration(data):
+            User.user_Registration(data)
+        else:
+            print("invalid values")
+            return redirect('/register')
+        return redirect('/login')
 
     ##################################### PROFILE ##################################
 
