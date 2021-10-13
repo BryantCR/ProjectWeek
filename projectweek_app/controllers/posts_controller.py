@@ -45,9 +45,10 @@ def updatePostu(id):
         return redirect('/logout')
 
     posts_content = request.form['update_posts_content']
-    user_id = request.form['users_id']
+    user_id = request.form['user_id']
+    post_id = request.form['post_id']
 
-    data = (posts_content, user_id)
+    data = (posts_content, user_id, post_id)
     if Postu.validate_post(data):
         Postu.update_post(data)
     else:

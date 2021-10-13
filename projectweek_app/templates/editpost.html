@@ -41,7 +41,7 @@
                         </li>
                         <li class="px-3">
                             <!-- <p>User name here</p> -->
-                            <img class="login_icon" src="./../static/images/user (1).png" alt="user icon">
+                            <img class="login_icon" src="{{ url_for('static',filename='images/user(1).png')}}" alt="user icon">
                         </li>
                     </ul>
                 </div>
@@ -49,7 +49,9 @@
         </header>
         <main class="d-flex flex-column">
             <div class="bg-dark p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm border border-secondary">
-                <form class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1" action="">
+                <form class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1" action="/update/post/{{ singleUserPost[0]['post_id'] }}">
+                    <input type="hidden" value="{{singleUserPost[0]['user_id']}}" name="user_id"/>
+                    <input type="hidden" value="{{singleUserPost[0]['post_id']}}" name="post_id"/>
                     <div>
                         <h6 class="m-2 fw-bold">
                             {{singleUserPost[0]['first_name']}}
@@ -60,8 +62,8 @@
                             <p class="fs-6">
                                 @{{singleUserPost[0]['first_name']}}{{singleUserPost[0]['last_name']}}
                             </p>
-                            <div class="w-100">
-                                <input class="form-control w-100 text-white p-1 rounded m-2 align-text-center" type="text" name="update_posts_content" placeholder=" Current Post: {{singleUserPost[0]['posts_content']}}"></input>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea">{{singleUserPost[0]['posts_content']}}</textarea>
                             </div>
                         </div>
                     </div>

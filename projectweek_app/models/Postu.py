@@ -30,6 +30,7 @@ class Postu:
         data = {
             "posts_content" : data[0],
             "user_id" : data[1],
+            "post_id" : data[2]
         }
         result = connectToMySQL('project_app').query_db( query, data )
         return result
