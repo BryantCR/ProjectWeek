@@ -78,6 +78,30 @@
                         Peopple who liked this post
                     </h4>
                 </div>
+                <div class="container-fluid d-flex flex-row text-white border border-secondary">
+                    <div class="d-flex flex-column">
+                        <h5>
+                            Alias
+                        </h5>
+                        {% for i in userWhoLiked: %}
+                            <p class="mx-1">
+                                @{{i['first_name']}}{{i['last_name']}}
+                            </p>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <h5>
+                                Name
+                            </h5>
+                            {% for i in userWhoLiked: %}
+                                <p class="mx-1">
+                                    <a class="" href="/{{i['first_name']}}/{{i['users_id']}}">{{i['first_name']}} {{i['last_name']}}</a>
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
                 {% if userWhoLiked != () %}
                     <div class="table-responsive">
                         <table class="table table-dark table-sm">

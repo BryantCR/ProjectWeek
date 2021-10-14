@@ -46,7 +46,7 @@
                 </div>
             </nav>
         </header>
-        <main class="d-flex flex-row bg-dark py-4">
+        <main class="homeMain d-flex flex-row bg-dark py-4">
             <div class="d-flex flex-column px-3 flex-grow-1">
                 <div>
                     {% with messages = get_flashed_messages() %}
@@ -68,7 +68,7 @@
                 </form>
                 {% if allPostus != False %}
                     {% for post in allPostus %}
-                        <div class=" p-1 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm border border-secondary">
+                        <div class=" p-1 d-flex flex-row justify-content-between align-self-stretch text-white bg-dark shadow-sm border border-secondary">
                             <div>
                                 <h6 class="m-2 fw-bold">
                                     {{post['first_name']}}
@@ -104,7 +104,7 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            <div class="d-flex flex-column m-4 flex-grow-3 flex-grow-1 ">
+            <div class="d-flex flex-column px-3 flex-grow-1">
                 <table class="table table-dark table-sm table-responsive">
                     <thead style="align-items: center; justify-content: center; text-align: center;">
                         <td class="col-auto px-5">
