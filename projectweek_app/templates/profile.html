@@ -126,7 +126,7 @@
                     Trophees
                 </h5>
                 <div>
-                    {% if fromPostDBById[0]['post_likes'] != 0 %}
+                    {% if fromPostDBById[0]['post_likes'] != None %}
                         {% if fromPostDBById[0]['post_likes'] >= 25 %}
                             <p>Success</p>
                         {% endif %}
