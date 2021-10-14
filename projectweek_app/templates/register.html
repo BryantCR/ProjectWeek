@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-        <link rel="stylesheet" href="./../static/css/login.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/login.css')}}">
         <title>Register</title>
     </head>
     <body>
@@ -41,35 +41,35 @@
                                 <!-- <label class="col-sm-2 col-form-label" for="email">
                                     Email Address: 
                                 </label> -->
-                                <img class="login_icon" src="./../static/images/2931147_user_face_avatar_account_head_icon.png" alt="user icon">
+                                <img class="login_icon" src="{{ url_for('static',filename='images/2931147_user_face_avatar_account_head_icon.png')}}" alt="user icon">
                                 <input class="form-control-plaintext" type="text" id="first_name" name="first_name" placeholder="First Name"/>
                             </div>
                             <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
                                 <!-- <label class="col-sm-2 col-form-label" for="email">
                                     Email Address: 
                                 </label> -->
-                                <img class="login_icon" src="./../static/images/2931147_user_face_avatar_account_head_icon.png" alt="user icon">
+                                <img class="login_icon" src="{{ url_for('static',filename='images/2931147_user_face_avatar_account_head_icon.png')}}" alt="user icon">
                                 <input class="form-control-plaintext" type="text" id="last_name" name="last_name" placeholder="Last Name"/>
                             </div>
                             <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
                                 <!-- <label class="col-sm-2 col-form-label" for="email">
                                     Email Address: 
                                 </label> -->
-                                <img class="login_icon" src="./../static/images/2931172_email_message_letter_mail_send_icon.png" alt="user icon">
+                                <img class="login_icon" src="{{ url_for('static',filename='images/2931172_email_message_letter_mail_send_icon.png')}}" alt="email_icon">
                                 <input class="form-control-plaintext" type="email" id="email" name="email" placeholder="Email"/>
                             </div>
                             <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
                                 <!-- <label class="col-sm-2 col-form-label" for="users_password">
                                     Password: 
                                 </label> -->
-                                <img class="login_icon" src="./../static/images/2849796_lock_security_multimedia_close_protection_icon.png" alt="password icon">
+                                <img class="login_icon" src="{{ url_for('static',filename='images/2849796_lock_security_multimedia_close_protection_icon.png')}}" alt="password_icon">
                                 <input class="form-control-plaintext"  type="password" name="users_password" id="users_password" placeholder="Password"/>
                             </div>
                             <div class="d-flex flex-row justify-content-center align-items-center e-5 py-3">
                                 <!-- <label class="col-sm-2 col-form-label" for="users_password">
                                     Password: 
                                 </label> -->
-                                <img class="login_icon" src="./../static/images/2931164_clef_key_lock_unlock_password_icon.png" alt="password icon">
+                                <img class="login_icon" src="{{ url_for('static',filename='images/2931164_clef_key_lock_unlock_password_icon.png')}}" alt="password_icon">
                                 <input class="form-control-plaintext"  type="password" name="confirm_users_password" id="confirm_users_password" placeholder="Confirm Password"/>
                             </div>
                             <div class="d-flex flex-row justify-content-start align-items-center e-5 py-3">
