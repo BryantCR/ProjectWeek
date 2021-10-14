@@ -80,7 +80,8 @@ flex: 1;
 	margin-right: 10%;
 }
 
-@media only screen and (min-width: 481px) and (max-width: 1023px){
+@media only screen and (min-width: 360px) and (max-width: 800px){
+
 	@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
 	* {
 		vertical-align: baseline;
@@ -92,18 +93,20 @@ flex: 1;
 		outline: 0;
 		padding: 0;
 		margin: 0;
-		font-family: 'Titillium Web', sans-serif;
+		/* font-family: 'Titillium Web', sans-serif; */
 	}
 
 	.container_form_image{
 		display: flex;
 		flex-direction: column;
+		justify-content: end;
 	}
 	
 	.login_image{
 		height: auto;
 		width: auto;
 	}
+
 
 }
 
