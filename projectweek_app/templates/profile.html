@@ -128,7 +128,10 @@
                 <div>
                     {% if fromPostDBById[0]['post_likes'] != None %}
                         {% if fromPostDBById[0]['post_likes'] >= 25 %}
-                            <p>Success</p>
+                        <img class="login_icon" src="{{ url_for('static',filename='images/8159106_thumbs up_agree_yes_icon(1).png')}}" alt="user icon">
+                        <p>
+                            Get 25 or more likes on a single post
+                        </p>
                         {% endif %}
                     {% else %}
                         <div>

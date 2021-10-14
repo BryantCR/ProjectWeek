@@ -14,12 +14,12 @@ X    (1) Application features static content (CSS, images, JS)
 X    (1) Created data must be validated (events cannot be in the past, wall posts must include content, no duplicate data, etc)
 O    (1) Application is responsive
 O    (1) Application is publicly deployed
-O    (1) Application features an API (Can be either everything with Flask or a Client + Server)
+X    (1) Application features an API (Can be either everything with Flask or a Client + Server)
 
 Wireframes are attached as images to this email.
 
 Warmly,
 
-X-9
-O-4
+X-10
+O-3
 

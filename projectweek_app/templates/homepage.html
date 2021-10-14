@@ -10,11 +10,11 @@
     </head>
     <body>
         <header>
-            <nav class="nav, d-flex align-self-center flex-row, shadow-sm p-3 mb-5 bg-body rounded" class="nav_background">
+            <nav class="nav, d-flex align-self-center flex-row, shadow-sm p-3 mb-5 bg-body rounded" class="nav_background" >
                 <h2 class="nav-item px-3 flex-grow-1" class="nav_tittle">
                     "Tittle here"
                 </h2>
-                <div class="text-black d-flex justify-content-end align-self-center flex-1 px-4">
+                <div class="text-black d-flex justify-content-end align-self-center flex-1 px-4" id="nav_background2">
                     <ul class="list-unstyled px-2 d-flex flex-row">
                         <li class="px-3">
                             <a class="text-black" href="#">
@@ -46,7 +46,7 @@
                 </div>
             </nav>
         </header>
-        <main class="homeMain d-flex flex-row bg-dark py-4">
+        <main class="homeMain d-flex flex-row bg-dark py-4" id="mainHome">
             <div class="d-flex flex-column px-3 flex-grow-1">
                 <div>
                     {% with messages = get_flashed_messages() %}
@@ -105,7 +105,7 @@
                 {% endif %}
             </div>
             <div class="d-flex flex-column px-3 flex-grow-1">
-                <table class="table table-dark table-sm table-responsive">
+                <table class="table table-dark table-sm" id="table_text">
                     <thead style="align-items: center; justify-content: center; text-align: center;">
                         <td class="col-auto px-5">
                             Minds
@@ -116,11 +116,11 @@
                     </thead>
                     <tbody>
                         {% for i in table_users: %}
-                        <tr>
-                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                        <tr id="table_text2">
+                            <td class="" style="align-items: center; justify-content: center; text-align: center;">
                                 {{i['first_name']}} {{i['last_name']}}
                             </td>
-                            <td class="fs-6" style="align-items: center; justify-content: center; text-align: center;">
+                            <td class="" style="align-items: center; justify-content: center; text-align: center;">
                                 <a class="" href="/{{i['first_name']}}/{{i['users_id']}}">Profile</a>
                             </td>
                         </tr>
