@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `project_app`.`posts` (
   CONSTRAINT `fk_posts_users`
     FOREIGN KEY (`user_id`)
     REFERENCES `project_app`.`users` (`users_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `project_app`.`likes` (
   `likes_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `post_id` INT NOT NULL,
+  `likes` INT NULL,
   `created_at` DATETIME NOT NULL,
   `updated_at` DATETIME NOT NULL,
   PRIMARY KEY (`likes_id`),
@@ -90,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `project_app`.`likes` (
   CONSTRAINT `fk_likes_users1`
     FOREIGN KEY (`user_id`)
     REFERENCES `project_app`.`users` (`users_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_likes_posts1`
     FOREIGN KEY (`post_id`)
@@ -105,9 +106,17 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 /*=============================================================================== Work in progress ========================================*/
+select * from posts;
 
-select *
-from posts;
+drop table posts;
+
+select likes.user_id, likes.post_id, users.first_name, users.last_name, users.users_id
+from likes left join posts on posts.posts_id = likes.post_id left join users on users.users_id = likes.user_id
+where post_id = 4 AND posts_id = 4 AND users.users_id = likes.user_id;
+
+SELECT DISTINCT likes.user_id, likes.post_id, users.first_name, users.last_name, users.users_id
+from likes left join posts on posts.posts_id = likes.post_id left join users on users.users_id = likes.user_id
+where post_id = 3 AND posts_id = 3 AND users.users_id = likes.user_id;
 
 SELECT posts.posts_content, users.first_name, users.last_name, posts.user_id, posts.posts_id, users.users_id, posts.post_likes
 FROM users LEFT JOIN posts ON users.users_id = posts.user_id
@@ -119,4 +128,6 @@ delete
 from posts
 where posts_id < 6;
 
-SELECT * FROM posts LEFT JOIN users on users.users_id = posts.user_id
+SELECT * FROM posts LEFT JOIN users on users.users_id = posts.user_id LEFT JOIN likes ON posts.posts_id = likes.post_id WHERE posts_id = 4;
+
+select * from users; 

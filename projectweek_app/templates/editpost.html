@@ -47,7 +47,7 @@
                 </div>
             </nav>
         </header>
-        <main class="d-flex flex-column">
+        <main class="d-flex flex-column w-auto">
             <div class="bg-dark p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm border border-secondary">
                 <form class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1" action="/update/post/{{singleUserPost[0]['posts_id']}}" method="POST">
                     <div class="p-1 m-4 d-flex flex-row justify-content-between align-self-stretch text-white shadow-sm flex-grow-1">
@@ -79,8 +79,8 @@
                                 <input type="hidden" value="{{singleUserPost[0]['posts_id']}}" name="post_id"/>
                             </div>
                         </div>
-                        <input class="btn btn-warning" type="submit" value="Update">
-                        <a class="btn btn-danger" href="/home" value="Cancel">Cancel</a>
+                        <input class="btn btn-warning d-flex" type="submit" value="Update">
+                        <a class="btn btn-danger d-flex" href="/home" value="Cancel">Cancel</a>
                     </div>
                 </form>
             </div>
