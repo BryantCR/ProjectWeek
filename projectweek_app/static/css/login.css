@@ -81,8 +81,29 @@ flex: 1;
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px){
-	/* .login_image{
+	@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
+	* {
+		vertical-align: baseline;
+		font-weight: inherit;
+		font-family: inherit;
+		font-style: inherit;
+		font-size: 100%;
+		border: 0 none;
+		outline: 0;
+		padding: 0;
+		margin: 0;
+		font-family: 'Titillium Web', sans-serif;
+	}
 
-	} */
+	.container_form_image{
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.login_image{
+		height: auto;
+		width: auto;
+	}
+
 }
 
