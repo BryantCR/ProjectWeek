@@ -11,3 +11,6 @@ for(let i = 0; i < likeButton.length; i++){
     likeButton[i].addEventListener("click", increaselikes);
 }
 
+function alertFunction() {
+    alert("Your account have been deleted successfully");
+}

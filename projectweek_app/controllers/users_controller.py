@@ -111,6 +111,18 @@ def displayUserProfile(name, id):
     print("ALL POST FROM ID: ", postusById)
     return render_template('profile.html', inSessionData = currentUser, user_In_Table = userData, fromPostDBById = postusById)
 
+    ##################################### DELETE ACCOUNT ##################################
+
+@app.route('/delete/account/<id>')
+def displayDeleteAccount(id):
+    if 'users_id' not in session:
+        return redirect("/logout")
+    data = {
+        "id" : id
+    }
+    User.delete_user_account(id)
+    return redirect('/logout')
+
     ##################################### LOGOUT ##################################
 
 @app.route('/logout')

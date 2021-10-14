@@ -76,6 +76,22 @@ class User:
             users.append( User( n['users_id'], n['first_name'], n['last_name'], n['email'], n['users_password'], n['created_at'] ) )
         return users
 
+    ################################################## DELETE ACCOUNT ###################################
+
+    @classmethod
+    def delete_user_account(cls, id):
+        data = {
+            "id" : id
+        }
+        query = "DELETE FROM users WHERE users_id = %(id)s;"
+        result2 = connectToMySQL('project_app').query_db( query, data )
+
+        query = "DELETE FROM posts WHERE user_id = %(id)s;"
+        result = connectToMySQL('project_app').query_db( query, data )
+
+        query = "DELETE FROM likes WHERE user_id = %(id)s;"
+        result1 = connectToMySQL('project_app').query_db( query, data )
+        return result, result1, result2
     ################################################## ????????????????? ###################################
 
     @classmethod
